@@ -1,0 +1,20 @@
+{
+    "manifest_version": 3,
+    "name": "TubeGuard - turn off all recommendations on youtube.",
+    "description": "To make it much easier for you to concentrate on your work, TubeGuard hides all the recommended YouTube videos from your eyes. You will be able to watch only those videos that you find through the search.",
+    "version": "1.0",
+    "permissions": ["storage", "scripting"],
+    "action": {
+        "default_popup": "hello.html"
+    },
+    "background": {
+        "service_worker": "src/background/index.js",
+        "type": "module"
+    },
+    "content_scripts": [
+        {
+          "matches": ["https://www.youtube.com/*"],
+          "js": ["src/content/index.js"]
+        }
+    ]
+}
